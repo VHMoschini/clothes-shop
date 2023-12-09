@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class FadeBehavior : MonoBehaviour
 {
+    #region [ VARIABLE ]
 
     private CanvasGroup cg;
     private TextMeshProUGUI text;
+
+    #endregion
+
+    #region [ MESSAGES ]
 
     private void OnEnable()
     {
@@ -16,6 +21,10 @@ public class FadeBehavior : MonoBehaviour
 
         Interaction.isInteractable.AddListener(Fade);
     }
+
+    #endregion
+
+    #region [ METHODS ] 
 
     private void Fade(bool fadeIn, string prompt)
     {
@@ -43,4 +52,6 @@ public class FadeBehavior : MonoBehaviour
 
         }
     }
+
+    #endregion
 }

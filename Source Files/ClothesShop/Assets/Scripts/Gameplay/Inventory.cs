@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    #region [ DATABASE ]
+
     [SerializeField]  internal List<Item> items = new List<Item>();
 
     internal Item GetItem(Item item)
@@ -19,4 +21,6 @@ public class Inventory : MonoBehaviour
 
         return items.FirstOrDefault();
     }
+
+    #endregion
 }

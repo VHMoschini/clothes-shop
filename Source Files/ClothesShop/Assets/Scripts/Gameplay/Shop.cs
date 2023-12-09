@@ -7,17 +7,30 @@ using UnityEngine.Events;
 
 public class Shop : MonoBehaviour
 {
+    #region [ EVENTS ]
+
     [SerializeField] static public UnityEvent<StoreInteractionConfig> OpenStoreEvent = new UnityEvent<StoreInteractionConfig>();
 
+    #endregion
+
+    #region [ VARIABLES ]
     [SerializeField] private Inventory inventory;
 
     private Interaction interaction;
+
+    #endregion
+
+    #region [ MESSAGES ]
 
     private void Start()
     {
         interaction = GetComponent<Interaction>();
         interaction.interacted.AddListener(OpenStore);
     }
+
+    #endregion
+
+    #region [ METHODS ]
 
     private void OpenStore()
     {
@@ -40,6 +53,8 @@ public class Shop : MonoBehaviour
         item.acquired = true;
         inventory.items[index] = item;
     }
+
+    #endregion
 }
 
 #region [ STRUCTS ]

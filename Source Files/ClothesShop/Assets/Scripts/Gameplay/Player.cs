@@ -5,7 +5,14 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+
+    #region [ EVENTS ]
+
     [SerializeField] static public UnityEvent<bool> MobilityChange = new UnityEvent<bool>();
+
+    #endregion
+
+    #region [ VARIABLES ]
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D rb;
@@ -13,6 +20,10 @@ public class Player : MonoBehaviour
 
     private Vector2 movement;
     private bool canMove = true;
+
+    #endregion
+
+    #region [ MESSAGES ]
 
     private void Start()
     {
@@ -35,8 +46,12 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
-    private void ChangeMobility(bool status)
-    {
-        canMove = status;
-    }
+
+    #endregion
+
+    #region [ METHODS ]
+
+    private void ChangeMobility(bool status) => canMove = status;
+
+    #endregion
 }

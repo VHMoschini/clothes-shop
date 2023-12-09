@@ -7,12 +7,18 @@ using UnityEngine.UI;
 
 public class Carrousel : MonoBehaviour
 {
+    #region [ VARIABLES ]
+
     [SerializeField] private CarrouselComponent carrouselComponent;
     [SerializeField] private Button ctaButton;
     [SerializeField] private TextMeshProUGUI header;
     [SerializeField] private GameObject carrouselObject;
 
     private Action<Item> calllbak;
+
+    #endregion
+
+    #region [ MESSAGES ]
 
     private void OnEnable()
     {
@@ -27,6 +33,10 @@ public class Carrousel : MonoBehaviour
             CloseCarrousel();
         }
     }
+
+    #endregion
+
+    #region [ METHODS ]
 
     private void OpenCarrousel(StoreInteractionConfig config)
     {
@@ -52,4 +62,6 @@ public class Carrousel : MonoBehaviour
         Item item = carrouselComponent.GetSelectedItem();
         calllbak.Invoke(item);
     }
+
+    #endregion
 }

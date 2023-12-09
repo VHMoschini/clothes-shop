@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class CarrouselItem : MonoBehaviour
 {
+
+    #region [ VARIABLES ]
+
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemPrice;
     [SerializeField] private Image itemBaseImage;
@@ -18,6 +21,10 @@ public class CarrouselItem : MonoBehaviour
     private Vector3 targetScale;
 
     private RectTransform localRectTransform;
+
+    #endregion
+
+    #region [ MESSAGES ]
 
     private void Start()
     {
@@ -34,6 +41,10 @@ public class CarrouselItem : MonoBehaviour
         localRectTransform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 10);
         localRectTransform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 10);
     }
+
+    #endregion
+
+    #region [ METHODS ]
 
     internal void initializeItem(Item config)
     {
@@ -73,4 +84,6 @@ public class CarrouselItem : MonoBehaviour
     {
         itemPrice.text = "Acquired";
     }
+
+    #endregion
 }
